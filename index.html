@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WebAR-HUMANS01</title>
+</head>
+<body style="margin:0px; overflow:hidden;">
+  <!-- A-Frame ライブラリの読み込み -->
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <!-- AR.js ライブラリの読み込み -->
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <!-- gltfアニメーションの読み込み -->
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
+  <!-- A-Frame の VR空間に AR.js を紐づける -->
+  <a-scene embedded arjs="debugUIEnabled:false;" renderer="gammaOutput: true;">
+  <!-- glTF形式のCGモデルの読み込み -->
+  <a-assets>
+    <a-asset-item id="glb" src="ARJSTEST_LOGO1.glb">
+　　　</a-asset-item>   <!-- glbファイル -->
+  </a-assets>
+  
+　 <a-assets>
+    <a-asset-item id="visq" src="visqlogo2.glb">
+　　　</a-asset-item>   <!-- glbファイル -->
+  </a-assets>
+
+    <a-assets>
+    <a-asset-item id="test" src="glitchicon.glb">
+　　　</a-asset-item>   <!-- glbファイル -->
+  </a-assets>
+    
+     　 <!--マーカー -->
+   <a-marker type='pattern' url='./pattern-nishitachisodawarilab_logonn.patt'>
+     <!--3DCGセッティング-->
+     <a-gltf-model 
+       src="#glb" animation-mixer
+       scale="6 6 6"
+       position="0 0.4 0"
+       animation="property:rotation; from:0 0 0; to:0 0 0; dur:18000; easing:linear; loop:true;">
+     </a-gltf-model>
+    </a-marker>
+    
+    <!--マーカー -->
+   <a-marker type='pattern' url='./pattern-visq.patt'>
+      <!--3DCGセッティング-->
+      <a-gltf-model 
+        src="#visq" animation-mixer   
+        scale="1.3 1.3 1.3"
+        position="1 0.06 0"
+        animation="property:rotation; from:0 0 0; to:0 0.04 0; dur:18000; easing:linear; loop:true;">
+      </a-gltf-model>
+     </a-marker>
+
+     <!--マーカー -->
+   <a-marker type='pattern' url='./pattern-halo.patt'>
+      <!--3DCGセッティング-->
+      <a-gltf-model 
+        src="#test" animation-mixer   
+        scale="1 1 1"
+        position="0 0 0"
+        animation="property:rotation; from:0 0 0; to:0 0 0; dur:18000; easing:linear; loop:true;">
+      </a-gltf-model>
+     </a-marker>
+    
+    <!-- カメラ -->
+    <a-entity camera></a-entity>
+ 　 
+  </a-scene>
+ 
+</body>
+</html>
